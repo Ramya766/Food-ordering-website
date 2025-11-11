@@ -1,25 +1,30 @@
-/** Nested Elements in React
- * <div id="parent">
- * <div id="child">
- * <h1>I'm h1 tag</h1>
- * </div>
- * <div id="child2">
- *   <h1>I'm h1 tag</h1>
- * </div>
- * </div>
- */
-const parent=React.createElement("div",{id:"parent"},
-    React.createElement("div",{id:"child"}, //the attribute should be in double quotes
-        [React.createElement("h1",{},"I'm h1 tag"),
-            React.createElement("h1",{},"I'm h1 tag")
-        ]
-    ),
-     React.createElement("div",{id:"child2"}, //the attribute should be in double quotes
-        [React.createElement("h1",{},"I'm h1 tag"),
-            React.createElement("h1",{},"I'm h1 tag")
-        ]
-    )
-)
-console.log(parent); //object
-const root=ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+import React from "react";
+import ReactDOM from "react-dom/client";
+const Header = () => {
+  return (
+    <div>
+      <div className="logo">
+        <img src="https://www.logodesign.net/logo/smoking-burger-with-lettiuce-3624ld.png"/>
+        <img src="https://pngtree.com/freepng/food-logo_8239850.html"/>
+      </div>
+      <div className="nav-items">
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Cart</li>
+        </ul>
+      </div>
+    </div>
+  );
+};
+const AppLayout = () => {
+  return (
+    <div className="app">
+      <Header />
+    </div>
+  );
+};
+const Root = ReactDOM.createRoot(document.getElementById("root"));
+Root.render(<AppLayout />);
+
