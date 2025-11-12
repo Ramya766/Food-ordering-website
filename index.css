@@ -1,3 +1,40 @@
-#content{
-    color: brown;
+.header {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #000;
+}
+.logo {
+  width: 150px;
+  padding-left: 20px;
+}
+.nav-items ul {
+  display: flex;
+}
+.nav-items ul li {
+  font-size: 24px;
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+  padding-right: 20px;
+  padding-top: 30px;
+}
+.search {
+  padding: 10px;
+}
+.resto-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.resto-card {
+  width: 200px;
+  margin: 5px;
+  height: 390px;
+  border: solid 1px #000;
+  padding: 10px;
+}
+.resto-card :hover {
+  cursor: pointer;
+}
+.resto-card img {
+  width: 100%;
 }
