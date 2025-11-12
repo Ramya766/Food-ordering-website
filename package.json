@@ -1,0 +1,35 @@
+{
+  "name": "namaste_react",
+  "version": "1.0.0",
+  "description": "This is My fav React Course",
+  "scripts": {
+    "start": "parcel index.html",
+    "build":"parcel build index.html", 
+    "test": "jest"
+  }, 
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ramya766/Namaste_React.git"
+  },
+  "keywords": [
+    "react",
+    "json",
+    "library"
+  ],
+  "author": "Ramya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ramya766/Namaste_React/issues"
+  },
+  "homepage": "https://github.com/Ramya766/Namaste_React#readme",
+  "devDependencies": {
+    "parcel": "^2.16.0"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "browsersList":[
+    "last 2 versions"
+  ]
+}
