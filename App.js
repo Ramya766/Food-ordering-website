@@ -6,6 +6,7 @@ const Header = () => {
       <div className="logo-container">
         <img
           src="https://www.logodesign.net/logo/smoking-burger-with-lettiuce-3624ld.png"
+          alt="Namaste Restaurant"
           className="logo"
         />
       </div>
@@ -24,20 +25,23 @@ const Header = () => {
 const RestoCard = (props) => {
   console.log(props);
   const {resData}=props;
+  const {name,cuisines,avgRating,costForTwo}=resData;
   return (
     <div className="resto-card" style={{ backgroundColor: "#f0f0f0" }}>
       <img
-        alt="resto-logo"
-        src={`https://res.cloudinary.com/swiggy/image/upload/${resData.cloudinaryImageId}`}
+        alt="LOGO"
+        src="https://b.zmtcdn.com/data/dish_photos/0e1/47ffd2c63e7591c08ddb9939217470e1.jpg?fit=around|130:130&crop=130:130;*,*"
+        
       />
-      <h2>{resData.name}</h2>
-      <h3>{resData.cuisines.join((','))}</h3>
-      <h3>{resData.avgRating}</h3>
-      <h3>{resData.costForTwo}</h3>
+      <h2>{name}</h2>
+      <h3>{cuisines.join((','))}</h3>
+      <h3>{avgRating}</h3>
+      <h3>{costForTwo}</h3>
     </div>
   );
 };
-const resObj= {
+
+const resList= {
   "restaurants": [
     {
       "id": "1",
@@ -161,13 +165,22 @@ const resObj= {
     }
   ]
 };
+const Footerr=()=>{
+  return(
+    <div className="footer">
+      <h2>© 2025 Namaste Restaurant Limited</h2>
+    </div>
+  )
+}
 
 const Body = () => {
   return (
     <div className="body">
       <div className="search">Search</div>
       <div className="resto-container">
-        <RestoCard resData={resObj.restaurants[0]} />
+        {
+          resList.restaurants.map((res)=>(<RestoCard key={res.id} resData={res}/>)) //wow this amazing
+        }
       </div>
     </div>
   );
@@ -177,6 +190,7 @@ const AppLayout = () => {
     <div className="app">
       <Header />
       <Body />
+      <Footerr/>
     </div>
   );
 };
