@@ -1,46 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-const Header = () => {
-  return (
-    <div className="header">
-      <div className="logo-container">
-        <img
-          src="https://www.logodesign.net/logo/smoking-burger-with-lettiuce-3624ld.png"
-          alt="Namaste Restaurant"
-          className="logo"
-        />
-      </div>
-      <div className="nav-items">
-        <ul>
-          <li>Home</li>
-          <li>About Us</li>
-          <li>Contact Us</li>
-          <li>Cart</li>
-        </ul>
-      </div>
-    </div>
-  );
-};
-
-const RestoCard = (props) => {
-  console.log(props);
-  const {resData}=props;
-  const {name,cuisines,avgRating,costForTwo}=resData;
-  return (
-    <div className="resto-card" style={{ backgroundColor: "#f0f0f0" }}>
-      <img
-        alt="LOGO"
-        src="https://b.zmtcdn.com/data/dish_photos/0e1/47ffd2c63e7591c08ddb9939217470e1.jpg?fit=around|130:130&crop=130:130;*,*"
-        
-      />
-      <h2>{name}</h2>
-      <h3>{cuisines.join((','))}</h3>
-      <h3>{avgRating}</h3>
-      <h3>{costForTwo}</h3>
-    </div>
-  );
-};
-
 const resList= {
   "restaurants": [
     {
@@ -164,35 +121,6 @@ const resList= {
       "costForTwo": "₹350 for two"
     }
   ]
-};
-const Footerr=()=>{
-  return(
-    <div className="footer">
-      <h2>© 2025 Namaste Restaurant Limited</h2>
-    </div>
-  )
-}
+}; 
 
-const Body = () => {
-  return (
-    <div className="body">
-      <div className="search">Search</div>
-      <div className="resto-container">
-        {
-          resList.restaurants.map((res)=>(<RestoCard key={res.id} resData={res}/>)) //wow this amazing
-        }
-      </div>
-    </div>
-  );
-};
-const AppLayout = () => {
-  return (
-    <div className="app">
-      <Header />
-      <Body />
-      <Footerr/>
-    </div>
-  );
-};
-const Root = ReactDOM.createRoot(document.getElementById("root"));
-Root.render(<AppLayout />);
+export default resList;
