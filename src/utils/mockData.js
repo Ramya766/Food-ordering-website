@@ -5,7 +5,7 @@ const resList= {
       "name": "Burger King",
       "cloudinaryImageId": "bb7ae33c5324fb37df95319c1b6ce1cb",
       "cuisines": ["Burgers", "Fast Food"],
-      "avgRating": 4.1,
+      "avgRating": 3.1,
       "costForTwo": "₹350 for two"
     },
     {
@@ -13,7 +13,7 @@ const resList= {
       "name": "KFC",
       "cloudinaryImageId": "f01666ac73626461d7455d9c24005cd4",
       "cuisines": ["Fried Chicken", "Snacks"],
-      "avgRating": 4.3,
+      "avgRating": 3.3,
       "costForTwo": "₹400 for two"
     },
     {
@@ -21,7 +21,7 @@ const resList= {
       "name": "Domino's Pizza",
       "cloudinaryImageId": "v1537386207/yb1klydqjz90wgmwq4is",
       "cuisines": ["Pizza", "Italian"],
-      "avgRating": 4.0,
+      "avgRating": 3.0,
       "costForTwo": "₹300 for two"
     },
     {
@@ -29,7 +29,7 @@ const resList= {
       "name": "Subway",
       "cloudinaryImageId": "4c7793dd6b8f926ca425d932d3c2d5a2",
       "cuisines": ["Healthy Food", "Sandwich"],
-      "avgRating": 4.2,
+      "avgRating": 3.2,
       "costForTwo": "₹250 for two"
     },
     {
@@ -61,7 +61,7 @@ const resList= {
       "name": "McDonald's",
       "cloudinaryImageId": "3bb0dcc7a732ed38b6fd6c681f6d2b45",
       "cuisines": ["Burgers", "Snacks"],
-      "avgRating": 4.2,
+      "avgRating": 5.0,
       "costForTwo": "₹300 for two"
     },
     {
@@ -93,7 +93,7 @@ const resList= {
       "name": "Anjappar Chettinad",
       "cloudinaryImageId": "jryjxtx5lh1rkejofjxv",
       "cuisines": ["Chettinad", "South Indian"],
-      "avgRating": 4.1,
+      "avgRating": 3.1,
       "costForTwo": "₹500 for two"
     },
     {
@@ -117,7 +117,7 @@ const resList= {
       "name": "Coffee Day",
       "cloudinaryImageId": "v1fjjqzj6hckok6g8jpn",
       "cuisines": ["Cafe", "Beverages"],
-      "avgRating": 4.0,
+      "avgRating": 3.0,
       "costForTwo": "₹350 for two"
     }
   ]
