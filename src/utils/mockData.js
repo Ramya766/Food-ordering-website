@@ -119,6 +119,12 @@ const resList= {
       "cuisines": ["Cafe", "Beverages"],
       "avgRating": 3.0,
       "costForTwo": "₹350 for two"
+    },
+    {
+      "id":"16",
+      "name":"5 Star Hotel",
+      "cuisines":["schuzee","moringo","athoo","bejoo"],
+      "avgRating":3.5
     }
   ]
 }; 
