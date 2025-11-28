@@ -1,14 +1,13 @@
 import RestoCard from "./RestaurantCard";
-import resList from "../utils/mockData";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState,useEffect } from "react";
+import Shimmerui from "./Shimmer";
 
 const Body = () => {
   //Local state Variable - super power variable
   const [listofRestaurants, setlistofRestaurants] = useState(
-    resList.restaurants
+    []
   );
-  console.log(resList);
+
   useEffect(() => {
     FetchApi();
   }, []);
@@ -23,6 +22,9 @@ const Body = () => {
     setlistofRestaurants(restaurants);
     
   };
+    if(listofRestaurants.length===0){
+    return <Shimmerui/>
+  }
 
   return (
     <div className="body">
