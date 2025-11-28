@@ -13,11 +13,15 @@ const Body = () => {
     FetchApi();
   }, []);
   const FetchApi = async () => {
+    console.log("Useeffect called");
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9716&lng=77.5946"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0697174&lng=80.2432839&collection=83655&tags=layout_CCS_Cake&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     );
-    const json=await data.json();
-    console.log(json);
+    const json = await data.json();
+    console.log(json.data.cards);
+    const restaurants=json?.data?.cards.filter((r)=>r.card.card.info).map((r)=>r.card.card.info);
+    setlistofRestaurants(restaurants);
+    
   };
 
   return (
