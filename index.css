@@ -63,3 +63,20 @@
   height: 400px;
   background-color:rgb(169, 173, 173);;
 }
+
+.login{
+  padding: 4px 15px;
+  margin: 40px;
+  cursor: pointer;
+}
+.filter{
+  display: flex;;
+}
+.search{
+  margin-top: 10px;
+}
+.search-btn{
+  margin-left: 5px;
+  padding: 5px;
+  cursor: pointer;
+}

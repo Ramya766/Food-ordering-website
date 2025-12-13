@@ -1,34 +1,46 @@
 import RestoCard from "./RestaurantCard";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import Shimmerui from "./Shimmer";
 
 const Body = () => {
   //Local state Variable - super power variable
-  const [listofRestaurants, setlistofRestaurants] = useState(
-    []
-  );
-
+  const [listofRestaurants, setlistofRestaurants] = useState([]);
+  const[searchText,setSearchText]=useState("");
+  console.log("Body Rendered");
   useEffect(() => {
     FetchApi();
   }, []);
   const FetchApi = async () => {
-    console.log("Useeffect called");
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0697174&lng=80.2432839&collection=83655&tags=layout_CCS_Cake&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
-    );
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0697174&lng=80.2432839&collection=83907&tags=layout_CCS_Coffee&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+    )
     const json = await data.json();
-    console.log(json.data.cards);
-    const restaurants=json?.data?.cards.filter((r)=>r.card.card.info).map((r)=>r.card.card.info);
+    const restaurants = json?.data?.cards
+      .filter((r) => r.card.card.info)
+      .map((r) => r.card.card.info);
+      console.log(json);
     setlistofRestaurants(restaurants);
-    
   };
-    if(listofRestaurants.length===0){
-    return <Shimmerui/>
-  }
 
-  return (
+  return listofRestaurants.length === 0 ? ( //conditional rendering
+    <Shimmerui /> //using ternary operator
+  ) : (
     <div className="body">
       <div className="filter">
+        <div className="search">
+          <input type="text" className="search-box" value={searchText}
+          onChange={(e)=>{
+            setSearchText(e.target.value);
+          }}
+          />
+          <button onClick={()=>{
+            //Filter the restraunt cards and update the UI
+            const filteredRestaurant=listofRestaurants.filter((res)=>{
+              resData.name.includes(searchText);
+            });
+            setlistofRestaurants(filteredRestaurant);
+          }}>Search</button>
+        </div>
         <button
           className="filter-btn"
           onClick={() => {
