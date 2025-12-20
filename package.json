@@ -4,9 +4,9 @@
   "description": "This is My fav React Course",
   "scripts": {
     "start": "parcel index.html",
-    "build":"parcel build index.html", 
+    "build": "parcel build index.html",
     "test": "jest"
-  }, 
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ramya766/Namaste_React.git"
@@ -26,10 +26,11 @@
     "parcel": "^2.16.0"
   },
   "dependencies": {
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react": "^19.0.1",
+    "react-dom": "^19.0.1",
+    "react-router-dom": "^7.11.0"
   },
-  "browsersList":[
+  "browsersList": [
     "last 2 versions"
   ]
 }

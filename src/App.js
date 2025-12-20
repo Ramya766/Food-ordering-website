@@ -2,7 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-
+import {createBrowserRouter,RouterProvider} from "react-router";
+import About from "./components/About"
+import Error from "./components/Error";
 
 
 const Footerr=()=>{
@@ -23,5 +25,16 @@ const AppLayout = () => {
     </div>
   );
 };
+const Router=createBrowserRouter([
+  {
+    path:"/",
+    element:<AppLayout/>,
+    errorElement:<Error/>
+  },
+  {
+    path:"/about",
+    element:<About/>,
+  },
+]);
 const Root = ReactDOM.createRoot(document.getElementById("root"));
-Root.render(<AppLayout />);
+Root.render(<RouterProvider router={Router}/>);
