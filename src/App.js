@@ -2,39 +2,48 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import {createBrowserRouter,RouterProvider} from "react-router";
-import About from "./components/About"
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router";
+import About from "./components/About";
 import Error from "./components/Error";
+import Contact from "./components/Contact"
 
-
-const Footerr=()=>{
-  return(
+const Footerr = () => {
+  return (
     <div className="footer">
       <h2>© 2025 Namaste Restaurant Limited</h2>
     </div>
-  )
-}
-
+  );
+};
 
 const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Body />
-      <Footerr/>
+      <Outlet /> {/** This will take the children based on path and replace with this component */}
+      <Footerr />
     </div>
   );
 };
-const Router=createBrowserRouter([
+const Router = createBrowserRouter([
   {
-    path:"/",
-    element:<AppLayout/>,
-    errorElement:<Error/>
-  },
-  {
-    path:"/about",
-    element:<About/>,
+    path: "/",
+    element: <AppLayout />,
+    children: [ //To create children Routes
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path:"/contact",
+        element:<Contact/>
+      }
+    ],
+    errorElement: <Error />,
   },
 ]);
 const Root = ReactDOM.createRoot(document.getElementById("root"));
-Root.render(<RouterProvider router={Router}/>);
+Root.render(<RouterProvider router={Router} />); //imp 
