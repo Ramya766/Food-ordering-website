@@ -16,7 +16,6 @@ const Body = () => {
      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9966135&lng=77.5920581&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     );
     const json = await data.json();
-    console.log(json);
     const restaurants = json?.data?.cards
       .filter((r) => r.card.card.info)
       .map((r) => r.card.card.info);
@@ -62,7 +61,6 @@ const Body = () => {
               (res) => res.avgRating > 4
             );
             SetfilteredRestaurant(filtered);
-            console.log("function Rendered");
             
           }}
         >
