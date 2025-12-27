@@ -8,6 +8,8 @@ import Error from "./components/Error";
 import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 
+
+
 const Footerr = () => {
   return (
     <div className="footer">
@@ -16,9 +18,12 @@ const Footerr = () => {
   );
 };
 
+
 const AppLayout = () => {
+
   return (
     <div className="app">
+
       <Header />
       <Outlet />{" "}
       {/** This will take the children based on path and replace with this component */}

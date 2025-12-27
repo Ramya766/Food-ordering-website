@@ -1,6 +1,7 @@
 import RestoCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmerui from "./Shimmer";
+import { Link } from "react-router";
 
 const Body = () => {
   //Local state Variable - super power variable
@@ -71,7 +72,9 @@ const Body = () => {
       <div className="resto-container">
         {
           filteredRestaurant.map((res) => (
-            <RestoCard key={res.id} resData={res} />
+            <Link key={res.id} to={"/restaurants"+res.id}>
+            <RestoCard  resData={res} />
+            </Link>
           )) //wow this amazing
         }
       </div>
