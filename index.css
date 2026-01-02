@@ -83,8 +83,11 @@
 
 .user-card{
   border: 1px solid black;
-  width: 250px;
+  width: 350px;
   padding: 20px;
   margin-left: 5px;
   cursor: pointer;
+}
+.class-img{
+  height: 350px;
 }
