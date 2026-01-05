@@ -1,23 +1,9 @@
-import { useEffect, useState } from "react";
 import Shimmerui from "./Shimmer";
 import {useParams} from "react-router";
-
+import { useRestaurantMenu } from "../utils/useRestaurantMenu";
 const RestaurantMenu = () => {
-  const [ResInfo, SetResInfo] = useState(null);
 const {resid}=useParams(); //destructinng it on the fly
-
-
-  useEffect(() => {
-    showMenu();
-  }, []);
-  const showMenu = async () => {
-    const data = await fetch(
-      "https://namastedev.com/api/v1/listRestaurantMenu/" + resid
-    );
-    const json = await data.json();
-    console.log(json);
-    SetResInfo(json);
-  };
+const ResInfo=useRestaurantMenu(resid);
   if (ResInfo === null) return <Shimmerui />;
   const { name, cuisines, costForTwo } =
     ResInfo?.data?.cards[2]?.card?.card?.info; //don't know how this works in action //object destructing
@@ -38,4 +24,5 @@ const {resid}=useParams(); //destructinng it on the fly
     </div>
   );
 };
+// ** The single responsibility of this component is only displaying the menu.**
 export default RestaurantMenu;
