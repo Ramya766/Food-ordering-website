@@ -91,3 +91,14 @@
 .class-img{
   height: 350px;
 }
+
+.status{
+  margin-top: 200px;
+  margin-left: 700px;
+  height: 90px;
+  padding: 20px;
+  background-color: black;
+  color:white ;
+  width: 200px;
+  border: 2px solid black;
+}

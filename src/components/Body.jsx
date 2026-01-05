@@ -2,19 +2,20 @@ import RestoCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmerui from "./Shimmer";
 import { Link } from "react-router";
-
+import { useShowOnline } from "../utils/useShowOnline";
 const Body = () => {
   //Local state Variable - super power variable
   const [listofRestaurants, setlistofRestaurants] = useState([]);
   const [filteredRestaurant, SetfilteredRestaurant] = useState([]); //I resolved the bug here
   const [searchText, setSearchText] = useState("");
-  console.log("Body Rendered");
+
+  
   useEffect(() => {
     FetchApi();
   }, []);
   const FetchApi = async () => {
     const data = await fetch(
-     "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9966135&lng=77.5920581&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9966135&lng=77.5920581&collection=83639&tags=layout_CCS_Biryani&sortBy=&filters=&type=rcv2&offset=0&page_type=null"
     );
     const json = await data.json();
     const restaurants = json?.data?.cards
@@ -24,6 +25,16 @@ const Body = () => {
     SetfilteredRestaurant(restaurants); //When i filter i'm modifing the original list,so that once i filtered if want to
     //search new rest i couldn't get it bcz i'm searching it in filtered rest
   };
+
+  const onlinestatus = useShowOnline();
+  console.log(onlinestatus);
+  if (onlinestatus == false)
+    return (
+      <div className="status">
+       <h4>Connection Error</h4>
+       <h5>please check your connection and try again.</h5>
+      </div>
+    );
 
   return listofRestaurants.length === 0 ? ( //conditional rendering
     <Shimmerui /> //using ternary operator
@@ -62,7 +73,6 @@ const Body = () => {
               (res) => res.avgRating > 4
             );
             SetfilteredRestaurant(filtered);
-            
           }}
         >
           Top Rated Restaurants
@@ -72,8 +82,8 @@ const Body = () => {
       <div className="resto-container">
         {
           filteredRestaurant.map((res) => (
-            <Link key={res.id} to={"/restaurants"+res.id}>
-            <RestoCard  resData={res} />
+            <Link key={res.id} to={"/restaurants" + res.id}>
+              <RestoCard resData={res} />
             </Link>
           )) //wow this amazing
         }
