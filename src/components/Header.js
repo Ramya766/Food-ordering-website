@@ -1,18 +1,19 @@
 import { useState, useEffect } from "react";
 import { LOGO_URL } from "../utils/constants";
-import {Link} from "react-router";
+import { Link } from "react-router";
 import { useShowOnline } from "../utils/useShowOnline";
 export const Header = () => {
   const [btnName, setbtnName] = useState("Login");
- const onlinestatus=useShowOnline();
+  const onlinestatus = useShowOnline();
+  //I'm using tailwind for styling
   return (
-    <div className="header">
+    <div className="flex justify-between"> 
       <div className="logo-container">
-        <img src={LOGO_URL} alt="Namaste Restaurant" className="logo" />
+        <img src={LOGO_URL} alt="Namaste Restaurant" className="w-40" />
       </div>
       <div className="nav-items">
-        <ul>
-          <li>Online Status:{onlinestatus?"✅":"🔴"}</li>
+        <ul className="flex p-5 m-10 justify-between">
+          <li>Online Status:{onlinestatus ? "✅" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -21,10 +22,10 @@ export const Header = () => {
           </li>
           <li>
             <Link to="/contact">Contact Us</Link>
-            </li>
-            <li>
-              <Link to="/grocery">Grocery</Link>
-            </li>
+          </li>
+          <li>
+            <Link to="/grocery">Grocery</Link>
+          </li>
           <li>Cart</li>
           <button
             className="login"
