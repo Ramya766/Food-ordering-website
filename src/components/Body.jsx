@@ -9,7 +9,6 @@ const Body = () => {
   const [filteredRestaurant, SetfilteredRestaurant] = useState([]); //I resolved the bug here
   const [searchText, setSearchText] = useState("");
 
-  
   useEffect(() => {
     FetchApi();
   }, []);
@@ -31,8 +30,8 @@ const Body = () => {
   if (onlinestatus == false)
     return (
       <div className="status">
-       <h4>Connection Error</h4>
-       <h5>please check your connection and try again.</h5>
+        <h4>Connection Error</h4>
+        <h5>please check your connection and try again.</h5>
       </div>
     );
 
@@ -40,17 +39,18 @@ const Body = () => {
     <Shimmerui /> //using ternary operator
   ) : (
     <div className="body">
-      <div className="filter">
-        <div className="search">
+      <div className="p-4 m-2 flex items-center">
+        <div className=" flex">
           <input
             type="text"
-            className="search-box"
+            className=" border-2 rounded-lg mr-4 w-70"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
+            className="bg-green-300 rounded-lg px-4 py-2 flex"
             onClick={() => {
               //Filter the restraunt cards and update the UI
               const filteredRestaurant = listofRestaurants.filter((res) => {
@@ -65,21 +65,23 @@ const Body = () => {
             Search
           </button>
         </div>
-        <button
-          className="filter-btn"
-          onClick={() => {
-            //Filter logic here
-            const filtered = listofRestaurants.filter(
-              (res) => res.avgRating > 4
-            );
-            SetfilteredRestaurant(filtered);
-          }}
-        >
-          Top Rated Restaurants
-        </button>
+        <div>
+          <button
+            className=" flex items-center bg-gray-300 px-4 py-2 rounded-lg ml-4"
+            onClick={() => {
+              //Filter logic here
+              const filtered = listofRestaurants.filter(
+                (res) => res.avgRating > 4
+              );
+              SetfilteredRestaurant(filtered);
+            }}
+          >
+            Top Rated Restaurants
+          </button>
+        </div>
       </div>
 
-      <div className="resto-container">
+      <div className="flex flex-wrap">
         {
           filteredRestaurant.map((res) => (
             <Link key={res.id} to={"/restaurants" + res.id}>

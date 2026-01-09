@@ -8,14 +8,14 @@ const RestoCard = (props) => {
 
   return (
 
-    <div className="resto-card" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="m-4 p-4 w-[320px] h-[460px]" style={{ backgroundColor: "#f0f0f0" }}>
       <img
        src={imageurl}
         alt={name}
-
+        className=" rounded-md"
         
       />
-      <h2>{name}</h2>
+      <h2 className=" font-bold my-4 text-xl">{name}</h2>
       <h3>{cuisines.join(", ")}</h3>
       <h3>{avgRating} Stars</h3>
       <h3>{costForTwo}</h3>
