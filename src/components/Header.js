@@ -6,8 +6,9 @@ export const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   const onlinestatus = useShowOnline();
   //I'm using tailwind for styling
+  //sm,lg media query
   return (
-    <div className="flex justify-between shadow-xl bg-orange-400 m-2" > 
+    <div className="flex justify-between shadow-xl bg-green-300 m-2 sm:bg-amber-300 lg:bg-orange-400" > 
       <div className="logo-container">
         <img src={LOGO_URL} alt="Namaste Restaurant" className="w-40" />
       </div>

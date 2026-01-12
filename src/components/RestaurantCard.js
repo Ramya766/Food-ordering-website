@@ -8,11 +8,11 @@ const RestoCard = (props) => {
 
   return (
 
-    <div className="m-4 p-4 w-[320px] h-[460px]" style={{ backgroundColor: "#f0f0f0" }}>
+    <div className="m-4 p-4 w-[290px] h-[450px] bg-gray-300 hover:bg-gray-500">
       <img
        src={imageurl}
         alt={name}
-        className=" rounded-md"
+        className=" rounded-md w-60 h-60"
         
       />
       <h2 className=" font-bold my-4 text-xl">{name}</h2>
