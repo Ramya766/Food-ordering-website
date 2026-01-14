@@ -1,4 +1,4 @@
-import RestoCard from "./RestaurantCard";
+import RestoCard,{withPromoted} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmerui from "./Shimmer";
 import { Link } from "react-router";
@@ -8,6 +8,8 @@ const Body = () => {
   const [listofRestaurants, setlistofRestaurants] = useState([]);
   const [filteredRestaurant, SetfilteredRestaurant] = useState([]); //I resolved the bug here
   const [searchText, setSearchText] = useState("");
+console.log(listofRestaurants);
+  const RestocardPromoted=withPromoted(RestoCard); //why we're passing the restocard
 
   useEffect(() => {
     FetchApi();
@@ -85,7 +87,9 @@ const Body = () => {
         {
           filteredRestaurant.map((res) => (
             <Link key={res.id} to={"/restaurants" + res.id}>
-              <RestoCard resData={res} />
+              {/** if the rest is promoted ,then add promoted label to it */}
+              {res.promoted ? ( <RestocardPromoted resData={res} /> ) :  ( <RestoCard resData={res}  /> )}
+            
             </Link>
           )) //wow this amazing
         }
