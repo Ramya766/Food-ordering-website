@@ -8,7 +8,7 @@ const Body = () => {
   const [listofRestaurants, setlistofRestaurants] = useState([]);
   const [filteredRestaurant, SetfilteredRestaurant] = useState([]); //I resolved the bug here
   const [searchText, setSearchText] = useState("");
-console.log(listofRestaurants);
+
   const RestocardPromoted=withPromoted(RestoCard); //why we're passing the restocard
 
   useEffect(() => {

@@ -1,22 +1,15 @@
-import UserClass from "./UserClass"
-import User from "./User"
-import React from "react";
+const users = [
+  { firstname: "Ramya", lastname: "sreevarshini", age: 19 },
+  { firstname: "Hari", lastname: "Priyadharshan", age: 22 },
+  { firstname: "Rama", lastname: "Tulasi", age: 18 },
+];
+//{19:2,24:1}
+const output = users.reduce(function(acc,curr){
 
-class About extends React.Component{
-constructor(props){
-    super(props);
-}
-componentDidMount(){
+    if(curr.age<20){
+        acc.push(curr.firstname) //push only works on array not on the objects
+    }
+    return acc;
 
-}
-render(){
-    return(
-        <div>
-            <h1>About page</h1>
-            <h1>This is About page</h1>
-            <UserClass name={"Ramya Developer"} location={"India"}/>
-        </div>
-    )
-}
-}
-export default About;
+},[])
+console.log(output);
