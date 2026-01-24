@@ -1,6 +1,7 @@
 import Shimmerui from "./Shimmer";
 import { useParams } from "react-router";
 import { useRestaurantMenu } from "../utils/useRestaurantMenu";
+import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
   const { resid } = useParams(); //destructinng it on the fly
   const ResInfo = useRestaurantMenu(resid);
@@ -20,6 +21,8 @@ const RestaurantMenu = () => {
     <div className="text-center" >
       <h1 className="font-bold text-3xl my-6">{name}</h1>
       <h2 className="font-bold text-lg ">{cuisines.join(",")}-{costForTwo}</h2>
+      {/**Categories Accordian */}
+      {categories.map((c)=>< RestaurantCategory data={c?.card?.card} key={c?.card?.card?.title} />)}
       
     </div>
   );
