@@ -1,9 +1,9 @@
 import AccordianBody from "./AccordianBody";
 import { useState,} from "react";
-const RestaurantCategory = ({ data }) => {
-  const [showItem, setShowItem] = useState(false);
+const RestaurantCategory = ({ data,showItem,setshowIndex }) => {
+
   const handleChange = () => {
-    setShowItem(!showItem);
+    setshowIndex();
   };
   return (
     <div>
