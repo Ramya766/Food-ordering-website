@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRestaurantMenu } from "../utils/useRestaurantMenu";
 import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenu = () => {
+
+  
   const [showIndex, setshowIndex] = useState(null);
   const { resid } = useParams(); //destructinng it on the fly
   const ResInfo = useRestaurantMenu(resid);
@@ -33,6 +35,7 @@ const RestaurantMenu = () => {
           key={c?.card?.card?.title}
           showItem={index === showIndex ? true : false}
           setshowIndex={() => setshowIndex(index)} //this is so confusing...
+          
         />
       ))}
     </div>

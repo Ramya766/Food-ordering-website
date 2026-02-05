@@ -1,6 +1,5 @@
 import { CDN_URL } from "../utils/constants";
 const AccordianBody = ({ items }) => {
-  console.log(items);
   return (
     <div>
       {items.map((item) => (

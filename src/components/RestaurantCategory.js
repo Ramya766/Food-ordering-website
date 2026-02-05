@@ -1,6 +1,6 @@
 import AccordianBody from "./AccordianBody";
 import { useState,} from "react";
-const RestaurantCategory = ({ data,showItem,setshowIndex }) => {
+const RestaurantCategory = ({ data,showItem,setshowIndex}) => {
 
   const handleChange = () => {
     setshowIndex();
@@ -18,7 +18,9 @@ const RestaurantCategory = ({ data,showItem,setshowIndex }) => {
         { showItem && <AccordianBody
           items={data?.itemCards}
           key={data?.itemCards?.card?.info?.id}
+          
         />} 
+        
       </div>
       {/**Accordian Body */}
     </div>

@@ -1,10 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect,useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import { useShowOnline } from "../utils/useShowOnline";
+import userContext from "../utils/userContext";
 export const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   const onlinestatus = useShowOnline();
+  const {Loggedinfo}=useContext(userContext);
+  console.log(Loggedinfo);
   //I'm using tailwind for styling
   //sm,lg media query
   return (
@@ -36,6 +39,7 @@ export const Header = () => {
           >
             {btnName}
           </button>
+          <li className="font-bold">{Loggedinfo}</li>
         </ul>
       </div>
     </div>
