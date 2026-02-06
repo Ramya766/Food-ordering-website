@@ -1,5 +1,13 @@
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 import { CDN_URL } from "../utils/constants";
 const AccordianBody = ({ items }) => {
+  const dispatch = useDispatch();
+  const handleAddItem = (item) => {
+    //dispatch an action
+    dispatch(addItem(item));
+    console.log(dispatch(addItem(item)));
+  };
   return (
     <div>
       {items.map((item) => (
@@ -15,7 +23,10 @@ const AccordianBody = ({ items }) => {
 
           <div className="w-3/12 p-2 ">
             <div className=" absolute rounded-2xl shadow-2xl">
-              <button className=" bg-white text-black p-2 rounded-lg mx-2 my-2 border border-gray-700">
+              <button
+                className=" bg-white text-black p-2 rounded-lg mx-2 my-2 border border-gray-700"
+                onClick={() => handleAddItem(item)}
+              >
                 Add +
               </button>
             </div>

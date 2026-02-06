@@ -9,7 +9,8 @@ import Contact from "./components/Contact";
 import RestaurantMenu from "./components/RestaurantMenu";
 import UserClass from "./components/UserClass";
 import userContext from "./utils/userContext";
-
+import { Provider } from "react-redux"; //bridge
+import appStore from "./utils/appStore";
 const Grocery = lazy(() => import("./components/Grocery"));
 
 const Footerr = () => {
@@ -32,6 +33,7 @@ const AppLayout = () => {
   }, []);
 
   return (
+    <Provider store={appStore}> {/** store is imp it is passed as props [redux store] */}
     <div className="app">
       <userContext.Provider value={{ Loggedinfo: username }}>
         <Header />
@@ -39,6 +41,7 @@ const AppLayout = () => {
       <Outlet />{" "}
       {/** This will take the children based on path and replace with this component */}
     </div>
+    </Provider>
   );
 };
 const Router = createBrowserRouter([

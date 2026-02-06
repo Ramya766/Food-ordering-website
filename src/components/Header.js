@@ -1,17 +1,20 @@
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router";
 import { useShowOnline } from "../utils/useShowOnline";
 import userContext from "../utils/userContext";
+import { useSelector } from "react-redux";
+
 export const Header = () => {
   const [btnName, setbtnName] = useState("Login");
   const onlinestatus = useShowOnline();
-  const {Loggedinfo}=useContext(userContext);
-  console.log(Loggedinfo);
+  const { Loggedinfo } = useContext(userContext);
+  //Subscribing to the store using a Selector[hook]
+  const cartItems = useSelector((store) => store.cart?.items || []); //to read the store
   //I'm using tailwind for styling
   //sm,lg media query
   return (
-    <div className="flex justify-between shadow-xl bg-green-300 m-2 sm:bg-amber-300 lg:bg-orange-400" > 
+    <div className="flex justify-between shadow-xl bg-green-300 m-2 sm:bg-amber-300 lg:bg-amber-300">
       <div className="logo-container">
         <img src={LOGO_URL} alt="Namaste Restaurant" className="w-40" />
       </div>
@@ -30,7 +33,9 @@ export const Header = () => {
           <li className="px-3">
             <Link to="/grocery">Grocery</Link>
           </li>
-          <li className="px-3">Cart</li>
+          <li className="px-3 font-bold text-xl">
+            Cart - ({cartItems.length}items)
+          </li>
           <button
             className="px-3"
             onClick={() => {
