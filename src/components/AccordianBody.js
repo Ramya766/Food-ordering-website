@@ -6,7 +6,6 @@ const AccordianBody = ({ items }) => {
   const handleAddItem = (item) => {
     //dispatch an action
     dispatch(addItem(item));
-    console.log(dispatch(addItem(item)));
   };
   return (
     <div>

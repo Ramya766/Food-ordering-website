@@ -5,3 +5,22 @@
 -slice (cartslice)
 -displace (action)
 -selector
+
+#Types of Testing
+-Unit Testing
+-Integration Testing
+-End to End Testing -e2e testing
+
+#setting up testing
+-Install React Testing Library
+-Install jest
+-Installed Babel dependencies
+-Configure Babel 
+-Configure parcel config file to disable defult babel transpilation
+-Jest configuration using command npx create-jest@latest
+-install jsdom library 
+//Jest 28
+If you're using Jest 28 or later, jest-environment-jsdom package now must be installed separately.
+-Install @babel/preset-react - to zke jsx work in our test cases
+-Include @babel/preset-react inside my babel config
+- Install npm i -D @testing-library/jest-dom
